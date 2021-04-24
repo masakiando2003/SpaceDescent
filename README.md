@@ -17,5 +17,5 @@ please create them in Unity Editor.
 Notice:
 1. Do NOT commit any things in "master" or "development" branches directly.
 2. Please create another branch from development for any works
-3. Create merge request if you push any new branches
-
+3. Create merge request if you push any new branches:
+{new branch} -> development
