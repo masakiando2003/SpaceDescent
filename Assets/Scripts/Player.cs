@@ -2,15 +2,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] float movementSpeed = 10f;
     [SerializeField] float padding = 1f;
+    [SerializeField] float slowDownFactor = 0.75f;
+    [SerializeField] float slowDownTime = 3f;
+    [SerializeField] SpriteRenderer playerSprite;
 
     float xMin, xMax, yMin, yMax;
 
-    bool isAlive;
+    bool isAlive, isSlowDownState;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +25,7 @@ public class Player : MonoBehaviour
     private void Initialization()
     {
         isAlive = true;
+        isSlowDownState = false;
         SetUpMoveBoundries();
     }
 
@@ -43,15 +48,36 @@ public class Player : MonoBehaviour
 
     private void HandlePlayerMovementInput()
     {
-        var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed;
-        var deltaY = Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed;
+        float movementFactor = 1f;
+        if(isSlowDownState) { movementFactor = slowDownFactor; }
+        var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed * movementFactor;
+        var deltaY = Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed * movementFactor;
         var newXPos = Mathf.Clamp(transform.position.x + deltaX, xMin, xMax);
         var newYPos = Mathf.Clamp(transform.position.y + deltaY, yMin, yMax);
         transform.position = new Vector2(newXPos, newYPos);
     }
 
+    public void SlowDownSpeed()
+    {
+        isSlowDownState = true;
+    }
+
+    public void ResetToNormalSpeed()
+    {
+        isSlowDownState = false;
+    }
+
     public void Die()
     {
         isAlive = false;
+        if(playerSprite != null)
+        {
+            playerSprite.enabled = false;
+        }
+    }
+
+    public float GetSlowDownTimer()
+    {
+        return slowDownTime;
     }
 }

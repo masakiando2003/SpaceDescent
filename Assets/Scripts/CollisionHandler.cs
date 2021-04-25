@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,13 +7,29 @@ public class CollisionHandler : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collisionObj)
     {
-        Debug.Log("Trigger Entered!");
-        switch (collisionObj.gameObject.tag)
+        if(gameObject.tag == "Player")
         {
-            case "Enemy":
-            case "Obstacles":
-                FindObjectOfType<GameManager>().GameOver();
-                break;
+            switch (collisionObj.gameObject.tag)
+            {
+                case "Enemy":
+                case "Obstacles":
+                    FindObjectOfType<GameManager>().GameOver();
+                    break;
+                case "Scientists":
+                    StartCoroutine(SlowDownPlayerSpeed(collisionObj.gameObject));
+                    break;
+            }
         }
+    }
+
+    private IEnumerator SlowDownPlayerSpeed(GameObject enemy)
+    {
+        enemy.GetComponent<StrangeScientist>().StopMovement();
+        enemy.GetComponent<StrangeScientist>().AttachToPlayer();
+        gameObject.GetComponent<Player>().SlowDownSpeed();
+        yield return new WaitForSeconds(gameObject.GetComponent<Player>().GetSlowDownTimer());
+        gameObject.GetComponent<Player>().ResetToNormalSpeed();
+        enemy.GetComponent<StrangeScientist>().ReleaseAttach();
+        enemy.GetComponent<StrangeScientist>().StartMovement();
     }
 }
