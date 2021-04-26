@@ -13,6 +13,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] Canvas winCanvas;
     [SerializeField] Text remainingDistanceText;
 
+    enum GameState
+    {
+        Ready,
+        Start,
+        Win,
+        GameOver
+    }
+
+    private static GameState gameState;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,12 +39,25 @@ public class GameManager : MonoBehaviour
         {
             winCanvas.enabled = false;
         }
+        gameState = GameState.Start;
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdatePlayerRemainingDistance();
+        if(gameState == GameState.Start)
+        {
+            UpdatePlayerRemainingDistance();
+            CheckRemainingDistance();
+        }
+    }
+
+    private void CheckRemainingDistance()
+    {
+        if(Mathf.Floor(remainingDistance) <= 0.0f)
+        {
+            Win();
+        }
     }
 
     private void UpdatePlayerRemainingDistance()
@@ -50,10 +73,14 @@ public class GameManager : MonoBehaviour
     {
         player.GetComponent<Player>().Die();
         gameOverCanvas.enabled = true;
+        gameState = GameState.GameOver;
     }
 
     public void Win()
     {
         winCanvas.enabled = true;
+        player.GetComponent<Player>().enabled = false;
+        player.GetComponent<CollisionHandler>().enabled = false;
+        gameState = GameState.Win;
     }
 }
