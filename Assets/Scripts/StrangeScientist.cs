@@ -5,6 +5,7 @@ using UnityEngine;
 public class StrangeScientist : MonoBehaviour
 {
     [SerializeField] float fallDownFactor = 0.01f;
+    [SerializeField] float disableColliderTime = 3f;
 
     Rigidbody2D rb;
     BoxCollider2D bc;
@@ -41,6 +42,13 @@ public class StrangeScientist : MonoBehaviour
     public void ReleaseAttach()
     {
         transform.SetParent(null);
+        StartCoroutine(TemporaryDisableCollider());
+    }
+
+    private IEnumerator TemporaryDisableCollider()
+    {
         bc.enabled = false;
+        yield return new WaitForSeconds(disableColliderTime);
+        bc.enabled = true;
     }
 }
