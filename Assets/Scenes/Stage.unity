@@ -499,12 +499,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coreRemainingDistance: 1000
-  spawnRockRandomTime: 100
-  spawnRockTimeFactor: 50
-  minRockRandomSpeed: 2
-  maxRockRandomSpeed: 5
-  maxRandomRockNums: 2
-  maxRocksAvailable: 2
   player: {fileID: 8702771267841272999}
   enemyPathPrefabs: []
   gameOverCanvas: {fileID: 1762058661}
@@ -1550,7 +1544,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1735989231
@@ -2115,7 +2109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 579286943710391289, guid: 788145dde6a18dc409253fdbeffba6db, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 788145dde6a18dc409253fdbeffba6db, type: 3}
@@ -2528,9 +2522,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8702771266422780933, guid: b196db06b568ef142ab1e8dec84f3b87, type: 3}
+      propertyPath: boostFactor
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771266422780933, guid: b196db06b568ef142ab1e8dec84f3b87, type: 3}
       propertyPath: playerSprite
       value: 
       objectReference: {fileID: 8702771267841273004}
+    - target: {fileID: 8702771266422780933, guid: b196db06b568ef142ab1e8dec84f3b87, type: 3}
+      propertyPath: movementSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8702771266422780933, guid: b196db06b568ef142ab1e8dec84f3b87, type: 3}
       propertyPath: slowDownFactor
       value: 0.25
