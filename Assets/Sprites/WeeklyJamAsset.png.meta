@@ -4,49 +4,52 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 1629862072213285860
-    second: WeeklyJamAsset_0
+    second: Core_1
   - first:
       213: -5438827180036085627
-    second: WeeklyJamAsset_1
+    second: Core_2
   - first:
       213: -238557154348493149
-    second: WeeklyJamAsset_2
+    second: Core_3
   - first:
       213: 7487427400231159421
-    second: WeeklyJamAsset_3
+    second: beam_1
   - first:
       213: 2771874576581534625
-    second: WeeklyJamAsset_4
+    second: beam_2
   - first:
       213: 1209746887751243415
-    second: WeeklyJamAsset_5
+    second: beam_3
   - first:
       213: -6420925938578923841
-    second: WeeklyJamAsset_6
+    second: beam_4
   - first:
       213: -3989801058827624373
-    second: WeeklyJamAsset_7
+    second: Strange_Scientists_1
   - first:
       213: 6882169006811700230
-    second: WeeklyJamAsset_8
+    second: Strange_Scientists_2
   - first:
       213: 2648754948613390222
-    second: WeeklyJamAsset_9
+    second: Rock_1
   - first:
       213: -6682231380827260694
-    second: WeeklyJamAsset_10
+    second: Rock_2
   - first:
       213: 3683615846946816440
-    second: WeeklyJamAsset_11
+    second: Rock_3
   - first:
       213: -3089569515995090017
-    second: WeeklyJamAsset_12
+    second: UFO
   - first:
       213: 1283807786069194420
-    second: WeeklyJamAsset_13
+    second: Professos_idle_1
   - first:
       213: 2732084126755277256
-    second: WeeklyJamAsset_14
+    second: Professos_idle_2
+  - first:
+      213: -7725222663939837482
+    second: ProfessorCaughted
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -172,7 +175,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WeeklyJamAsset_0
+      name: Core_1
       rect:
         serializedVersion: 2
         x: 0
@@ -180,7 +183,7 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -193,7 +196,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WeeklyJamAsset_1
+      name: Core_2
       rect:
         serializedVersion: 2
         x: 50
@@ -201,7 +204,7 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -214,7 +217,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WeeklyJamAsset_2
+      name: Core_3
       rect:
         serializedVersion: 2
         x: 100
@@ -222,7 +225,7 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -235,7 +238,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WeeklyJamAsset_3
+      name: beam_1
       rect:
         serializedVersion: 2
         x: 0
@@ -243,7 +246,7 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -256,7 +259,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WeeklyJamAsset_4
+      name: beam_2
       rect:
         serializedVersion: 2
         x: 50
@@ -264,7 +267,7 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -277,7 +280,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WeeklyJamAsset_5
+      name: beam_3
       rect:
         serializedVersion: 2
         x: 100
@@ -285,7 +288,7 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -298,7 +301,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WeeklyJamAsset_6
+      name: beam_4
       rect:
         serializedVersion: 2
         x: 150
@@ -306,7 +309,7 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -319,7 +322,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WeeklyJamAsset_7
+      name: Strange_Scientists_1
       rect:
         serializedVersion: 2
         x: 0
@@ -327,7 +330,7 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -340,7 +343,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WeeklyJamAsset_8
+      name: Strange_Scientists_2
       rect:
         serializedVersion: 2
         x: 50
@@ -348,7 +351,7 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -361,7 +364,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WeeklyJamAsset_9
+      name: Rock_1
       rect:
         serializedVersion: 2
         x: 0
@@ -369,7 +372,7 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -382,7 +385,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WeeklyJamAsset_10
+      name: Rock_2
       rect:
         serializedVersion: 2
         x: 50
@@ -390,7 +393,7 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -403,7 +406,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WeeklyJamAsset_11
+      name: Rock_3
       rect:
         serializedVersion: 2
         x: 100
@@ -411,7 +414,7 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -424,7 +427,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WeeklyJamAsset_12
+      name: UFO
       rect:
         serializedVersion: 2
         x: 0
@@ -432,7 +435,7 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -445,7 +448,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WeeklyJamAsset_13
+      name: Professos_idle_1
       rect:
         serializedVersion: 2
         x: 0
@@ -453,7 +456,7 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -466,7 +469,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WeeklyJamAsset_14
+      name: Professos_idle_2
       rect:
         serializedVersion: 2
         x: 50
@@ -474,7 +477,7 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -482,6 +485,27 @@ TextureImporter:
       bones: []
       spriteID: 8c94bbfb9005ae520800000000000000
       internalID: 2732084126755277256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProfessorCaughted
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 1
+        width: 69
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d1b119caee7ac490800000000000000
+      internalID: -7725222663939837482
       vertices: []
       indices: 
       edges: []

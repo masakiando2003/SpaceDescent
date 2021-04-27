@@ -4,39 +4,27 @@ using UnityEngine;
 
 public class BackgroundScroller : MonoBehaviour
 {
-    [SerializeField] float backgroundScrollSpeed = -0.5f;
-    [SerializeField] float boostSpeedFactor = 1.5f;
+    [SerializeField] float backgroundScrollSpeed = -1f;
 
     Material myMaterial;
     Vector2 offset;
-    float speedFactor, normalSpeedFactor;
+    Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
-        Initialization();
-    }
-
-    private void Initialization()
-    {
         myMaterial = GetComponent<Renderer>().material;
         offset = new Vector2(0f, backgroundScrollSpeed);
-        normalSpeedFactor = 1f;
-        speedFactor = normalSpeedFactor;
+        anim = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
+    // Update is called once per frame 
     void Update()
     {
-        myMaterial.mainTextureOffset += offset * Time.deltaTime * speedFactor;
-    }
-
-    public void BoostScrollSpeed()
-    {
-        speedFactor = boostSpeedFactor;
-    }
-    public void NormalScrollSpeed()
-    {
-        speedFactor = normalSpeedFactor;
+        myMaterial.mainTextureOffset += offset * Time.deltaTime;
+        if(anim == null) { return; }
+        anim.speed = backgroundScrollSpeed;
     }
 }
