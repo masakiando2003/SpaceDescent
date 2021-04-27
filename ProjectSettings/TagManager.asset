@@ -8,6 +8,8 @@ TagManager:
   - Obstacles
   - Core
   - Scientists
+  - Laser
+  - ShootingPosition
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - Enemy
   - Obstacles
   - Boundries
-  - 
-  - 
+  - Core
+  - SpawnArea
   - 
   - 
   - 
@@ -50,4 +52,7 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 3967248953
+    locked: 0
+  - name: Obstacles
+    uniqueID: 3369403501
     locked: 0
