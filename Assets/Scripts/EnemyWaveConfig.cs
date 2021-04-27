@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,34 +7,35 @@ using UnityEngine;
 public class EnemyWaveConfig : ScriptableObject
 {
     [SerializeField] GameObject enemyPrefab;
-    [SerializeField] GameObject pathPrefab;
+    [SerializeField] GameObject[] pathPrefabs;
     [SerializeField] GameObject projectTilePrefab;
-    [SerializeField] [Range(-1,1)] int direction;
-    [SerializeField] float playerRemainingDistanceToSpawn = 800f;
+    [SerializeField] int maxSpawnNum;
+    [SerializeField] float coreRemainDistanceThresold; // Spawn rocks before player reached this remaining distance
     [SerializeField] float timeBetweenSpawns = 5f;
-    [SerializeField] float enemyMoveSpeed = 1f;
-    [SerializeField] float enemyProjectTileSpeed = 10f;
+    [SerializeField] float minEnemyMoveSpeed = 1f;
+    [SerializeField] float maxEnemyMoveSpeed = 1f;
 
     public GameObject GetEnemyPrefab() { return enemyPrefab; }
     public GameObject GetProjectTilePrefab() { return projectTilePrefab; }
+    public int GetPathPrefabsCount() { return pathPrefabs.Length; }
 
-    public List<Transform> GetWaypoints() 
+    public List<Transform> GetWaypoints(int pathIndex) 
     {
         var waveWaypoints = new List<Transform>();
-        foreach(Transform child in pathPrefab.transform)
+        foreach(Transform child in pathPrefabs[pathIndex].transform)
         {
             waveWaypoints.Add(child);
         }
-        return waveWaypoints; 
+        return waveWaypoints;
     }
-
-    public int GetDirection() { return direction; }
-
-    public float GetPlayerRemainingDistanceToSpawn() { return playerRemainingDistanceToSpawn; }
+    public int GetMaxSpawnNum()
+    {
+        return maxSpawnNum;
+    }
+    public float GetCoreRemainingDistanceThresold() { return coreRemainDistanceThresold; }
 
     public float GetTimeBetweenSpawns() { return timeBetweenSpawns; }
 
-    public float GetEnemyMovementSpeed() { return enemyMoveSpeed; }
-
-    public float GetEnemyProjectTieSpeed() { return direction * enemyProjectTileSpeed; }
+    public float GetMinEnemyMovementSpeed() { return minEnemyMoveSpeed; }
+    public float GetMaxEnemyMovementSpeed() { return maxEnemyMoveSpeed; }
 }

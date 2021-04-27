@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: UFOWave1
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 6638197698250342983, guid: 3247c2ccf8533054ebbf133a00c43310, type: 3}
-  pathPrefab: {fileID: 5080405695832399197, guid: b9e505425daeb3b4ba721912edcf9ed8, type: 3}
+  pathPrefabs:
+  - {fileID: 7927845515658890452, guid: b28b0fe64c9d4c64e9e4ac55abb2c3db, type: 3}
+  - {fileID: 5080405695832399197, guid: b9e505425daeb3b4ba721912edcf9ed8, type: 3}
+  - {fileID: 6299280893781383331, guid: 2ed8a89e2ff56034ea54139e3fec5d3e, type: 3}
   projectTilePrefab: {fileID: 1304880533349482714, guid: f7026103454a4aa43bff8e5a28d80d9b, type: 3}
-  direction: -1
-  timeBetweenSpawns: 5
-  enemyMoveSpeed: 1
-  enemyProjectTileSpeed: 5
+  maxSpawnNum: 1
+  coreRemainDistanceThresold: 800
+  timeBetweenSpawns: 10
+  minEnemyMoveSpeed: 1
+  maxEnemyMoveSpeed: 3

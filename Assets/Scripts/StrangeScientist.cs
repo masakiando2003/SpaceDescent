@@ -51,4 +51,9 @@ public class StrangeScientist : MonoBehaviour
         yield return new WaitForSeconds(disableColliderTime);
         bc.enabled = true;
     }
+
+    public void SetFallDownFactor(float factor)
+    {
+        fallDownFactor = factor;
+    }
 }

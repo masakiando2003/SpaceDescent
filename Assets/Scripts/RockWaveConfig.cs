@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Rock Wave Config")]
-public class RockWaveConfig : MonoBehaviour
+public class RockWaveConfig : ScriptableObject
 {
 
     [SerializeField] GameObject rockPrefab;
     [SerializeField] GameObject[] availableSpawnAreas;
     [SerializeField] int maxSpawnNum;
+    [SerializeField] float coreRemainDistanceThresold; // Spawn rocks before player reached this remaining distance
     [SerializeField] float minSpeed;
     [SerializeField] float maxSpeed;
 
@@ -26,6 +27,8 @@ public class RockWaveConfig : MonoBehaviour
     }
 
     public int GetMaxSpawnNum() { return maxSpawnNum; }
+
+    public float GetCoreRemainingDistanceThresold() { return coreRemainDistanceThresold; }
 
     public float GetMinSpeed() { return minSpeed; }
 

@@ -8,19 +8,14 @@ using Random = UnityEngine.Random;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] float coreRemainingDistance = 10f;
-    [SerializeField] float spawnRockRandomTime = 100f, spawnRockTimeFactor = 50f;
-    [SerializeField] float minRockRandomSpeed = 10f, maxRockRandomSpeed = 30f;
-    [SerializeField] float ufoWave1Distance = 900f, ufoWave2Distance = 650f, ufoWave3Distance = 300f;
-    [SerializeField] int maxRandomRockNums = 3;
-    [SerializeField] int maxRocksAvailable = 3;
     [SerializeField] GameObject player;
-    [SerializeField] GameObject rockPrefab;
-    [SerializeField] Transform[] rocksSpawnPoint;
+    [SerializeField] GameObject[] enemyPathPrefabs;
     [SerializeField] Canvas gameOverCanvas;
     [SerializeField] Canvas winCanvas;
     [SerializeField] Text remainingDistanceText;
-
-    float spawnRockTime;
+    [SerializeField] RockWaveConfig[] rockWaveConfigs;
+    [SerializeField] EnemyWaveConfig[] enemyWaveConfigs;
+    [SerializeField] ScientistsWaveConfig[] scientistsWaveConfigs;
 
     enum GameState
     {
@@ -49,7 +44,6 @@ public class GameManager : MonoBehaviour
             winCanvas.enabled = false;
         }
         gameState = GameState.Start;
-        spawnRockTime = 0f;
     }
 
     // Update is called once per frame
@@ -58,46 +52,113 @@ public class GameManager : MonoBehaviour
         if(gameState == GameState.Start)
         {
             UpdatePlayerRemainingDistance();
-            CheckRemainingDistance();
-            RandomToSpawnRocks();
+            CheckCoreRemainingDistance();
+            SpawnRocks();
+            SpawnScientists();
+            SpawnUFOs();
         }
     }
 
-    private void RandomToSpawnRocks()
+    private void SpawnRocks()
     {
-        if(rockPrefab == null || FindObjectsOfType<Rock>().Length >= maxRocksAvailable) { return; }
-        spawnRockTime = Random.Range(0f, spawnRockRandomTime);
-        if(spawnRockTime >= spawnRockTimeFactor)
+        for(int i = 0; i < rockWaveConfigs.Length; i++)
         {
-            int randomRockNums = Random.Range(1, maxRandomRockNums);
-            int randomSpawnPointIndex = Random.Range(0, rocksSpawnPoint.Length);
-            float randomRockSpeed = Random.Range(minRockRandomSpeed, maxRockRandomSpeed);
-            GameObject rock = Instantiate(rockPrefab, 
-                rocksSpawnPoint[randomSpawnPointIndex].transform.position, 
-                Quaternion.identity);
-            rock.GetComponent<Rock>().SetMovementSpeed(randomRockSpeed);
-            if(GameObject.Find("Obstacles") != null)
+            if (FindObjectsOfType<Rock>().Length >= rockWaveConfigs[i].GetMaxSpawnNum() ||
+                rockWaveConfigs.Length <= 0 ||
+                rockWaveConfigs[i].GetRockPrefab() == null)
             {
-                rock.transform.SetParent(GameObject.Find("Obstacles").transform);
+                return;
+            }
+            float coreRemainingThresold = rockWaveConfigs[i].GetCoreRemainingDistanceThresold();
+
+            if (Mathf.Floor(coreRemainingDistance) >= coreRemainingThresold)
+            {
+                int randomRockNums = Random.Range(1, rockWaveConfigs[i].GetMaxSpawnNum());
+                for(int j = 0; j < randomRockNums; j++)
+                {
+                    float randomRockSpeed = Random.Range(rockWaveConfigs[i].GetMinSpeed(), rockWaveConfigs[i].GetMaxSpeed());
+                    int randomSpawnPointIndex = Random.Range(0, rockWaveConfigs[i].GetRockSpawnPoints().Count);
+                    List<Transform> rockSpawnPositions = rockWaveConfigs[i].GetRockSpawnPoints();
+                    GameObject rock = Instantiate(rockWaveConfigs[i].GetRockPrefab(),
+                        rockSpawnPositions[randomSpawnPointIndex].transform.position,
+                        Quaternion.identity);
+                    rock.GetComponent<Rock>().SetMovementSpeed(randomRockSpeed);
+                    if (GameObject.Find("Obstacles") != null)
+                    {
+                        rock.transform.SetParent(GameObject.Find("Obstacles").transform);
+                    }
+                }
             }
         }
     }
 
-    private void CheckRemainingDistance()
+    public void SpawnScientists()
     {
-        if (Mathf.Floor(coreRemainingDistance) <= ufoWave1Distance)
+        for (int i = 0; i < scientistsWaveConfigs.Length; i++)
         {
+            if (FindObjectsOfType<StrangeScientist>().Length >= scientistsWaveConfigs[i].GetMaxSpawnNum() ||
+                scientistsWaveConfigs.Length <= 0 ||
+                scientistsWaveConfigs[i].GetScientistPrefab() == null)
+            {
+                return;
+            }
+            float coreRemainingThresold = scientistsWaveConfigs[i].GetCoreRemainingDistanceThresold();
 
+            if (Mathf.Floor(coreRemainingDistance) >= coreRemainingThresold)
+            {
+                int randomScientistsNum = Random.Range(1, scientistsWaveConfigs[i].GetMaxSpawnNum());
+                for (int j = 0; j < randomScientistsNum; j++)
+                {
+                    int randomSpawnPointIndex = Random.Range(0, scientistsWaveConfigs[i].GetScientistSpawnPoints().Count);
+                    List<Transform> scientistSpawnPositions = scientistsWaveConfigs[i].GetScientistSpawnPoints();
+                    GameObject scientist = Instantiate(scientistsWaveConfigs[i].GetScientistPrefab(),
+                        scientistSpawnPositions[randomSpawnPointIndex].transform.position,
+                        Quaternion.identity);
+                    float randomFallFactor = Random.Range(scientistsWaveConfigs[i].GetMinFallDownFactor(), scientistsWaveConfigs[i].GetMaxFallDownFactor());
+                    scientist.GetComponent<StrangeScientist>().SetFallDownFactor(randomFallFactor);
+                    if (GameObject.Find("Strange_Scienists") != null)
+                    {
+                        scientist.transform.SetParent(GameObject.Find("Strange_Scienists").transform);
+                    }
+                }
+            }
         }
-        else if (Mathf.Floor(coreRemainingDistance) <= ufoWave2Distance)
+    }
+    private void SpawnUFOs()
+    {
+        for (int i = 0; i < enemyWaveConfigs.Length; i++)
         {
+            if (FindObjectsOfType<UFO>().Length >= enemyWaveConfigs[i].GetMaxSpawnNum() ||
+                enemyWaveConfigs.Length <= 0 ||
+                enemyWaveConfigs[i].GetEnemyPrefab() == null)
+            {
+                return;
+            }
+            float coreRemainingThresold = enemyWaveConfigs[i].GetCoreRemainingDistanceThresold();
 
+            if (Mathf.Floor(coreRemainingDistance) >= coreRemainingThresold)
+            {
+                int randomUFONums = Random.Range(1, enemyWaveConfigs[i].GetMaxSpawnNum());
+                for(int j = 0; j < randomUFONums; j++)
+                {
+                    int randomSpawnPointIndex = Random.Range(0, enemyWaveConfigs[i].GetPathPrefabsCount());
+                    List<Transform> rockSpawnPositions = enemyWaveConfigs[i].GetWaypoints(randomSpawnPointIndex);
+                    GameObject ufo = Instantiate(enemyWaveConfigs[i].GetEnemyPrefab(),
+                        rockSpawnPositions[randomSpawnPointIndex].transform.position,
+                        Quaternion.identity);
+                    ufo.GetComponent<EnemyPathing>().Initialization(randomSpawnPointIndex);
+                    if (GameObject.Find("UFOs") != null)
+                    {
+                        ufo.transform.SetParent(GameObject.Find("UFOs").transform);
+                    }
+                }
+            }
         }
-        else if (Mathf.Floor(coreRemainingDistance) <= ufoWave3Distance)
-        {
+    }
 
-        }
-        else if(Mathf.Floor(coreRemainingDistance) <= 0.0f)
+    private void CheckCoreRemainingDistance()
+    {
+        if(Mathf.Floor(coreRemainingDistance) <= 0.0f)
         {
             FindObjectOfType<Core>().StartFalling();
         }

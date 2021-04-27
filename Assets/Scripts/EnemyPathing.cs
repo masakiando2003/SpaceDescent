@@ -6,19 +6,18 @@ public class EnemyPathing : MonoBehaviour
 {
     [SerializeField] EnemyWaveConfig ufoWaveConfig;
     [SerializeField] List<Transform> waypoints;
-    [SerializeField] float moveSpped = 2f;
 
     int wayPointIndex;
 
     // Start is called before the first frame update
     void Start()
     {
-        Initialization();
+        //Initialization();
     }
 
-    private void Initialization()
+    public void Initialization(int randomedPathIndex)
     {
-        waypoints = ufoWaveConfig.GetWaypoints();
+        waypoints = ufoWaveConfig.GetWaypoints(randomedPathIndex);
         wayPointIndex = 0;
         transform.position = waypoints[wayPointIndex].transform.position;
     }
@@ -31,10 +30,13 @@ public class EnemyPathing : MonoBehaviour
 
     private void MoveAndShoot()
     {
+        if(waypoints == null) { return; }
         if (wayPointIndex <= waypoints.Count - 1)
         {
             var targetPosition = waypoints[wayPointIndex].transform.position;
-            var movementThisFrame = moveSpped * Time.deltaTime;
+            float minMoveSpeed = ufoWaveConfig.GetMinEnemyMovementSpeed();
+            float maxMoveSpeed = ufoWaveConfig.GetMaxEnemyMovementSpeed();
+            var movementThisFrame = Random.Range(minMoveSpeed, maxMoveSpeed) * Time.deltaTime;
             transform.position = Vector2.MoveTowards
                 (transform.position, targetPosition, movementThisFrame);
 
@@ -44,10 +46,8 @@ public class EnemyPathing : MonoBehaviour
                     waypoints[wayPointIndex].gameObject.tag == "ShootingPosition")
                 {
                     if(ufoWaveConfig == null) { return; }
-                    int direction = ufoWaveConfig.GetDirection();
-                    float configuredProjectTileSpeed = ufoWaveConfig.GetEnemyProjectTieSpeed();
                     GameObject configuredProjectTile = ufoWaveConfig.GetProjectTilePrefab();
-                    gameObject.GetComponent<UFO>().Fire(configuredProjectTile, direction, configuredProjectTileSpeed);
+                    gameObject.GetComponent<UFO>().Fire(configuredProjectTile);
                 }
                 wayPointIndex++;
             }
