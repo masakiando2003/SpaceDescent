@@ -3,15 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] float remainingDistance = 1001f;
-    [SerializeField] float countDownFactor = 10f;
+    [SerializeField] float coreRemainingDistance = 10f;
+    [SerializeField] float spawnRockRandomTime = 100f, spawnRockTimeFactor = 50f;
+    [SerializeField] float minRockRandomSpeed = 10f, maxRockRandomSpeed = 30f;
+    [SerializeField] float ufoWave1Distance = 900f, ufoWave2Distance = 650f, ufoWave3Distance = 300f;
+    [SerializeField] int maxRandomRockNums = 3;
+    [SerializeField] int maxRocksAvailable = 3;
     [SerializeField] GameObject player;
+    [SerializeField] GameObject rockPrefab;
+    [SerializeField] Transform[] rocksSpawnPoint;
     [SerializeField] Canvas gameOverCanvas;
     [SerializeField] Canvas winCanvas;
     [SerializeField] Text remainingDistanceText;
+
+    float spawnRockTime;
 
     enum GameState
     {
@@ -40,6 +49,7 @@ public class GameManager : MonoBehaviour
             winCanvas.enabled = false;
         }
         gameState = GameState.Start;
+        spawnRockTime = 0f;
     }
 
     // Update is called once per frame
@@ -49,24 +59,57 @@ public class GameManager : MonoBehaviour
         {
             UpdatePlayerRemainingDistance();
             CheckRemainingDistance();
+            RandomToSpawnRocks();
+        }
+    }
+
+    private void RandomToSpawnRocks()
+    {
+        if(rockPrefab == null || FindObjectsOfType<Rock>().Length >= maxRocksAvailable) { return; }
+        spawnRockTime = Random.Range(0f, spawnRockRandomTime);
+        if(spawnRockTime >= spawnRockTimeFactor)
+        {
+            int randomRockNums = Random.Range(1, maxRandomRockNums);
+            int randomSpawnPointIndex = Random.Range(0, rocksSpawnPoint.Length);
+            float randomRockSpeed = Random.Range(minRockRandomSpeed, maxRockRandomSpeed);
+            GameObject rock = Instantiate(rockPrefab, 
+                rocksSpawnPoint[randomSpawnPointIndex].transform.position, 
+                Quaternion.identity);
+            rock.GetComponent<Rock>().SetMovementSpeed(randomRockSpeed);
+            if(GameObject.Find("Obstacles") != null)
+            {
+                rock.transform.SetParent(GameObject.Find("Obstacles").transform);
+            }
         }
     }
 
     private void CheckRemainingDistance()
     {
-        if(Mathf.Floor(remainingDistance) <= 0.0f)
+        if (Mathf.Floor(coreRemainingDistance) <= ufoWave1Distance)
         {
-            Win();
+
+        }
+        else if (Mathf.Floor(coreRemainingDistance) <= ufoWave2Distance)
+        {
+
+        }
+        else if (Mathf.Floor(coreRemainingDistance) <= ufoWave3Distance)
+        {
+
+        }
+        else if(Mathf.Floor(coreRemainingDistance) <= 0.0f)
+        {
+            FindObjectOfType<Core>().StartFalling();
         }
     }
 
     private void UpdatePlayerRemainingDistance()
     {
         if(remainingDistanceText == null) { return; }
-        remainingDistance -= (remainingDistance * Time.deltaTime * countDownFactor) >= 0.0f 
-            ? (remainingDistance * Time.deltaTime * countDownFactor) 
+        coreRemainingDistance -= (coreRemainingDistance * Time.deltaTime) >= 0.0f 
+            ? Time.deltaTime 
             : 0.0f;
-        remainingDistanceText.text = Mathf.FloorToInt(remainingDistance).ToString() + " km";
+        remainingDistanceText.text = Mathf.FloorToInt(coreRemainingDistance).ToString() + " km";
     }
 
     public void GameOver()

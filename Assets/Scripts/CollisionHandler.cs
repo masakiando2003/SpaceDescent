@@ -20,8 +20,16 @@ public class CollisionHandler : MonoBehaviour
         {
             switch (collisionObj.gameObject.tag)
             {
+                case "Core":
+                    collisionObj.gameObject.GetComponent<Core>().AttachToPlayer();
+                    FindObjectOfType<GameManager>().Win();
+                    break;
                 case "Enemy":
                 case "Obstacles":
+                    FindObjectOfType<GameManager>().GameOver();
+                    break;
+                case "Laser":
+                    Destroy(collisionObj.gameObject);
                     FindObjectOfType<GameManager>().GameOver();
                     break;
                 case "Scientists":

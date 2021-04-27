@@ -8,7 +8,9 @@ public class Player : MonoBehaviour
 {
     [SerializeField] float movementSpeed = 10f;
     [SerializeField] float padding = 1f;
-    [SerializeField] float slowDownFactor = 0.75f;
+    [SerializeField] float normalFactor = 1f;
+    [SerializeField] float boostFactor = 2f;
+    [SerializeField] float slowDownFactor = 0.5f;
     [SerializeField] float slowDownTime = 3f;
     [SerializeField] SpriteRenderer playerSprite;
 
@@ -49,7 +51,15 @@ public class Player : MonoBehaviour
     private void HandlePlayerMovementInput()
     {
         float movementFactor = 1f;
-        if(isSlowDownState) { movementFactor = slowDownFactor; }
+        if (Input.GetAxis("Vertical") < 0)
+        {
+            movementFactor = boostFactor;
+        }
+        else
+        {
+            movementFactor = normalFactor;
+        }
+        if (isSlowDownState) { movementFactor = slowDownFactor; }
         var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed * movementFactor;
         var deltaY = Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed * movementFactor;
         var newXPos = Mathf.Clamp(transform.position.x + deltaX, xMin, xMax);
