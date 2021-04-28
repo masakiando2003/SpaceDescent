@@ -61,6 +61,7 @@ public class CollisionHandler : MonoBehaviour
     {
         enemy.GetComponent<StrangeScientist>().StopMovement();
         enemy.GetComponent<StrangeScientist>().AttachToPlayer();
+        gameObject.GetComponent<Animator>().SetTrigger("StuckTrigger");
         gameObject.GetComponent<Player>().SlowDownSpeed();
         yield return new WaitForSeconds(gameObject.GetComponent<Player>().GetSlowDownTimer());
         gameObject.GetComponent<Player>().ResetToNormalSpeed();

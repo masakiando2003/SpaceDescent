@@ -9,6 +9,7 @@ public class StrangeScientist : MonoBehaviour
 
     Rigidbody2D rb;
     BoxCollider2D bc;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class StrangeScientist : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = fallDownFactor;
         bc = GetComponent<BoxCollider2D>();
+        anim = GetComponent<Animator>();
     }
 
     public void StopMovement()
@@ -38,6 +40,7 @@ public class StrangeScientist : MonoBehaviour
     {
         Player player = FindObjectOfType<Player>();
         transform.SetParent(player.transform);
+        anim.SetTrigger("Caughted");
     }
     public void ReleaseAttach()
     {

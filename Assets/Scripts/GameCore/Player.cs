@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     [SerializeField] float movementSpeed = 10f;
-    [SerializeField] float padding = 1f;
+    [SerializeField] float Bottompadding = 3f;
+    
     [SerializeField] float normalFactor = 1f;
     [SerializeField] float boostFactor = 2f;
     [SerializeField] float slowDownFactor = 0.5f;
@@ -15,6 +16,7 @@ public class Player : MonoBehaviour
     [SerializeField] SpriteRenderer playerSprite;
 
     float xMin, xMax, yMin, yMax;
+    float padding = 0.5f;
 
     bool isAlive, isSlowDownState;
 
@@ -36,7 +38,7 @@ public class Player : MonoBehaviour
         Camera gameCamera = Camera.main;
         xMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + padding;
         xMax = gameCamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - padding;
-        yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + padding;
+        yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + Bottompadding;
         yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
     }
 
