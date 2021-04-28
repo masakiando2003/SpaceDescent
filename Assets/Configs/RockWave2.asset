@@ -16,8 +16,12 @@ MonoBehaviour:
   availableSpawnAreas:
   - {fileID: 2235320300331583543, guid: 7d4fdcd00b4025240abb816af88e3b58, type: 3}
   - {fileID: 4533807686353399299, guid: dd12e17b5b9ac644ba4547fcb20fc780, type: 3}
-  maxSpawnNum: 5
-  startWaveDistance: -100
-  endWaveDistance: -50
-  minSpeed: 2
-  maxSpeed: 4
+  - {fileID: 5831251640075837840, guid: 7b33c9944d33a534eb4ab4d053877a4b, type: 3}
+  - {fileID: 5776965062089471242, guid: 5043def160fa0ff4fade6353669966b2, type: 3}
+  - {fileID: 1408792281024753815, guid: 8c75f6c94b8eb1949b7eac64540c2ea0, type: 3}
+  - {fileID: 5053868512757152831, guid: e1095cfeb4fbed0428c1986e9ed1babc, type: 3}
+  maxSpawnNum: 2
+  startWaveDistance: 25
+  endWaveDistance: 15
+  minSpeed: 4
+  maxSpeed: 5

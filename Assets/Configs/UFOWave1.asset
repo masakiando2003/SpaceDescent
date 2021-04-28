@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a2f79df2900fc245b3de29891daf86c, type: 3}
   m_Name: UFOWave1
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 6638197698250342983, guid: 3247c2ccf8533054ebbf133a00c43310, type: 3}
+  enemyPrefab: {fileID: 3193779257072488560, guid: 5ac218b921f856842addd779186bccbe, type: 3}
   pathPrefabs:
   - {fileID: 7927845515658890452, guid: b28b0fe64c9d4c64e9e4ac55abb2c3db, type: 3}
   - {fileID: 5080405695832399197, guid: b9e505425daeb3b4ba721912edcf9ed8, type: 3}

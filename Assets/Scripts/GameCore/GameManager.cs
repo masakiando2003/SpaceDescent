@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] float startCountDownTime = 3.9f, hideCountDownTime = 1f, readyToStartSeconds = 2f;
     [SerializeField] float coreRemainingDistance = 10f;
+    [SerializeField] float coreVisibleDistance = 10f;
     [SerializeField] string startGameText = "GO !";
     [SerializeField] GameObject player;
     [SerializeField] GameObject blackHole;
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     float countDownTimer;
     bool coreStartFalling;
+    private bool blackHoleVisible;
 
     enum GameState
     {
@@ -95,6 +97,7 @@ public class GameManager : MonoBehaviour
                 }
                 UpdatePlayerRemainingDistance();
                 CheckCoreRemainingDistance();
+                CheckBlackHoleRemainingDistance();
                 SpawnRocks();
                 SpawnScientists();
                 SpawnUFOs();
@@ -293,7 +296,7 @@ public class GameManager : MonoBehaviour
 
     private void CheckCoreRemainingDistance()
     {
-        if(Mathf.Floor(coreRemainingDistance) <= 0.0f)
+        if(Mathf.Floor(coreRemainingDistance) <= coreVisibleDistance)
         {
             if (!coreStartFalling)
             {
@@ -302,12 +305,24 @@ public class GameManager : MonoBehaviour
                     int randomSpawnPointIndex = Random.Range(1, coreSpawnPoints.Length);
                     FindObjectOfType<Core>().transform.position = coreSpawnPoints[randomSpawnPointIndex].transform.position;
                 }
-                FindObjectOfType<Core>().StartFalling();
+                   FindObjectOfType<Core>().StartInitialize();
+                coreStartFalling = true;
+            }
+        }
+    }
+
+    private void CheckBlackHoleRemainingDistance()
+    {
+        if (Mathf.Floor(coreRemainingDistance) <= 2f)
+        {
+            if (!blackHoleVisible)
+            {
                 if (blackHole != null)
                 {
                     blackHole.SetActive(true);
                 }
-                coreStartFalling = true;
+
+                blackHoleVisible = true;
             }
         }
     }

@@ -54,4 +54,22 @@ public class Core : MonoBehaviour
         if (rb == null) { return; }
         rb.simulated = true;
     }
+
+    public void StartInitialize()
+    {
+        if(rb== null){return;}
+
+        StartCoroutine(UpwardInitialize());
+    }
+
+    IEnumerator UpwardInitialize()
+    {
+        rb.gravityScale = -0.35f;
+        rb.simulated = true;
+        cc.enabled = false;
+        yield return new WaitForSeconds(0.2f);
+        cc.enabled = true;
+        rb.gravityScale = 0.008f;
+        StartFalling();
+    }
 }

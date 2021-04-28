@@ -18,7 +18,7 @@ MonoBehaviour:
   - {fileID: 4341672459861886634, guid: 1adcdc4991eeca34385992de702ead7c, type: 3}
   - {fileID: 4324043738750766432, guid: 2bea6d212e14df54b9be4d6a25e0d83f, type: 3}
   maxSpawnNum: 2
-  startWaveDistance: 100
-  endWaveDistance: 51
+  startWaveDistance: 50
+  endWaveDistance: 20
   minFallDownFactor: -0.03
   maxFallDownFactor: -0.04

@@ -31,6 +31,7 @@ public class UFO : MonoBehaviour
         for(int i = 0; i < projectTileSpawnTransform.Length; i++)
         {
             float rotationAngle = rotationAngles[i];
+         
             GameObject laser = Instantiate(
                 projectTile,
                 projectTileSpawnTransform[i].position,
