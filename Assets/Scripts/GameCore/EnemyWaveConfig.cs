@@ -33,6 +33,7 @@ public class EnemyWaveConfig : ScriptableObject
     {
         return maxSpawnNum;
     }
+    public float GetStartWaveDistance() { return startWaveDistance; }
     public float GetEndWaveDistance() { return endWaveDistance; }
 
     public float GetTimeBetweenSpawns() { return timeBetweenSpawns; }

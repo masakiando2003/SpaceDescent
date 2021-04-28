@@ -5,9 +5,14 @@ using UnityEngine;
 
 public class CollisionHandler : MonoBehaviour
 {
+    [SerializeField] AudioClip hitRockSE;
+    [SerializeField] AudioClip hitLaserSE;
+    AudioSource audioSource;
+
     private void Start()
     {
-        
+        if(GetComponent<AudioSource>() == null) { return; }
+        audioSource = GetComponent<AudioSource>();
     }
     private void Update()
     {
@@ -24,12 +29,25 @@ public class CollisionHandler : MonoBehaviour
                     collisionObj.gameObject.GetComponent<Core>().AttachToPlayer();
                     FindObjectOfType<GameManager>().Win();
                     break;
-                case "Enemy":
                 case "Obstacles":
+                case "Enemy":
+                    if(hitRockSE != null)
+                    {
+                        audioSource.Stop();
+                        audioSource.PlayOneShot(hitRockSE);
+                    }
+                    Destroy(collisionObj.gameObject);
+                    gameObject.GetComponent<Player>().Die();
                     FindObjectOfType<GameManager>().GameOver();
                     break;
                 case "Laser":
+                    if (hitLaserSE != null)
+                    {
+                        audioSource.Stop();
+                        audioSource.PlayOneShot(hitLaserSE);
+                    }
                     Destroy(collisionObj.gameObject);
+                    gameObject.GetComponent<Player>().Die();
                     FindObjectOfType<GameManager>().GameOver();
                     break;
                 case "Scientists":

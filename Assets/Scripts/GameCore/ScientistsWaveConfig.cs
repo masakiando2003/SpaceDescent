@@ -27,6 +27,8 @@ public class ScientistsWaveConfig : ScriptableObject
 
     public int GetMaxSpawnNum() { return maxSpawnNum; }
 
+    public float GetStartWaveDistance() { return startWaveDistance; }
+
     public float GetEndWaveDistance() { return endWaveDistance; }
 
     public float GetMinFallDownFactor() { return minFallDownFactor; }
