@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd5522bccddd6b24dacb35c3c041193d, type: 3}
   m_Name: RockWave2
   m_EditorClassIdentifier: 
-  rockPrefab: {fileID: 8743449184708812677, guid: caf6c04d9daea184db93c115b613d7fe, type: 3}
+  rockPrefab: {fileID: 4742415527612582317, guid: 807aa65d343ba0c41866eab34c1a5984, type: 3}
   availableSpawnAreas:
   - {fileID: 2132020316168943899, guid: 7d4fdcd00b4025240abb816af88e3b58, type: 3}
   - {fileID: 1824107088101995977, guid: dd12e17b5b9ac644ba4547fcb20fc780, type: 3}
