@@ -398,7 +398,7 @@ PlayableDirector:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 163068229}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 9abe0401dd94a8d4f98342caca10826a, type: 2}
   m_InitialState: 1
@@ -824,7 +824,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &474219386
 RectTransform:
   m_ObjectHideFlags: 0
@@ -909,6 +909,7 @@ MonoBehaviour:
   - 555555
   - 6666666
   - 77777777
+  - 888888888888888888
 --- !u!1 &474299822
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,7 +1097,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &590861543
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1172,7 +1173,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &671937848
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1385,7 +1386,6 @@ RectTransform:
   - {fileID: 983862197}
   - {fileID: 474219386}
   - {fileID: 2030512108}
-  - {fileID: 1253818944}
   m_Father: {fileID: 182730278}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1676,7 +1676,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1061256457
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1738,115 +1738,6 @@ Canvas:
   m_SortingLayerID: -1645434163
   m_SortingOrder: 1
   m_TargetDisplay: 0
---- !u!1 &1253818943
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1253818944}
-  - component: {fileID: 1253818947}
-  - component: {fileID: 1253818946}
-  - component: {fileID: 1253818945}
-  m_Layer: 5
-  m_Name: IntroductionText (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1253818944
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1253818943}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 853582073}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 300.99997}
-  m_SizeDelta: {x: 1041, y: 518.3}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1253818945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1253818943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3535dd6bae95e6c4989bd9aa9dd460cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WaitNextText: 2
-  fullText:
-  - Could anyone prevent the universe from vanishing in Time!?
-  - Around the universe, people from earth to aliens have mobilised to steal the
-    energy ball.
-  - ' The professor decides to travel to a black hole. He plans to lure those thieves
-    into the black hole and use the energy ball to force close the black hole, trapping
-    them in it. '
-  - ' Unfortunately, he dropped the energy ball into the black hole. The professor
-    who wanted back his property travel into the Black Hole following by aliens and
-    human servants. '
-  - ' Could the professor take back his energy ball before other people?'
-  - ' Side note, when the energy ball reaches the bottom of the black hole could
-    cause a big bang explosion that could wipe out the universe. '
-  - Could anyone prevent the universe from vanishing in Time!?
---- !u!114 &1253818946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1253818943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.8117648, b: 0.6117647, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: de2f5de73a03cff4d933365e7992812f, type: 3}
-    m_FontSize: 50
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 3
-    m_MaxSize: 300
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: ' Unfortunately, he dropped the energy ball into the black hole. The professor
-    who wanted back his property travel into the Black Hole following by aliens and
-    human servants. '
---- !u!222 &1253818947
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1253818943}
-  m_CullTransparentMesh: 1
 --- !u!1 &1269667789
 GameObject:
   m_ObjectHideFlags: 0
@@ -1876,11 +1767,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60486f209603f1b4aa40ded192ed37e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogText: {fileID: 0}
-  stageProp: []
-  playableStage: []
+  dialogText: {fileID: 474219385}
+  stages:
+  - {fileID: 163068229}
+  - {fileID: 590861542}
+  - {fileID: 2099165545}
+  - {fileID: 1061256456}
+  - {fileID: 1556621089}
+  - {fileID: 671937847}
+  - {fileID: 1910784418}
   blackScreenImageObject: {fileID: 1613730405}
   fadeTime: 2
+  changeStageTime: 1
 --- !u!4 &1269667792
 Transform:
   m_ObjectHideFlags: 0
@@ -2454,7 +2352,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1556621090
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2625,7 +2523,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1613730406
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2642,7 +2540,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 550, y: 900}
+  m_AnchoredPosition: {x: 550.0001, y: 1021.00006}
   m_SizeDelta: {x: 768, y: 1024}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1613730407
@@ -2814,7 +2712,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!223 &1910784419
 Canvas:
   m_ObjectHideFlags: 0
@@ -2928,7 +2826,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2030512108
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2976,6 +2874,7 @@ MonoBehaviour:
   - ' Side note, when the energy ball reaches the bottom of the black hole could
     cause a big bang explosion that could wipe out the universe. '
   - Could anyone prevent the universe from vanishing in Time!?
+  - .
 --- !u!114 &2030512110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3132,7 +3031,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2099165546
 RectTransform:
   m_ObjectHideFlags: 0
