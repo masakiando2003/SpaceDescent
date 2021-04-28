@@ -8,7 +8,8 @@ public class ScientistsWaveConfig : ScriptableObject
     [SerializeField] GameObject scientistsPrefab;
     [SerializeField] GameObject[] availableSpawnAreas;
     [SerializeField] int maxSpawnNum;
-    [SerializeField] float coreRemainDistanceThresold; // Spawn rocks before player reached this remaining distance
+    [SerializeField] float startWaveDistance;
+    [SerializeField] float endWaveDistance;
     [SerializeField] float minFallDownFactor;
     [SerializeField] float maxFallDownFactor;
 
@@ -26,7 +27,7 @@ public class ScientistsWaveConfig : ScriptableObject
 
     public int GetMaxSpawnNum() { return maxSpawnNum; }
 
-    public float GetCoreRemainingDistanceThresold() { return coreRemainDistanceThresold; }
+    public float GetEndWaveDistance() { return endWaveDistance; }
 
     public float GetMinFallDownFactor() { return minFallDownFactor; }
     public float GetMaxFallDownFactor() { return maxFallDownFactor; }
