@@ -9,7 +9,7 @@ public class RockWaveConfig : ScriptableObject
     [SerializeField] GameObject rockPrefab;
     [SerializeField] GameObject[] availableSpawnAreas;
     [SerializeField] int maxSpawnNum;
-    [SerializeField] float coreRemainDistanceThresold; // Spawn rocks before player reached this remaining distance
+    [SerializeField] float endWaveDistance;
     [SerializeField] float minSpeed;
     [SerializeField] float maxSpeed;
 
@@ -28,7 +28,7 @@ public class RockWaveConfig : ScriptableObject
 
     public int GetMaxSpawnNum() { return maxSpawnNum; }
 
-    public float GetCoreRemainingDistanceThresold() { return coreRemainDistanceThresold; }
+    public float GetCoreRemainingDistanceThresold() { return endWaveDistance; }
 
     public float GetMinSpeed() { return minSpeed; }
 

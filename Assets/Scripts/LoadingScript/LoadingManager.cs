@@ -11,7 +11,8 @@ public class LoadingManager : MonoBehaviour
     [SerializeField] GameObject DialogText;
     [SerializeField] Canvas[] StageProp;
     [SerializeField] Animator[] StagePropAnim;
-
+    [SerializeField] GameObject blackScreenImageObject;
+    [SerializeField] float fadeTime = 2f;
 
     private static int playstage;
 
@@ -25,6 +26,7 @@ public class LoadingManager : MonoBehaviour
         fifth,
         sixth,
         last,
+        FadeScreen,
         ChangeScene
     }
     void Start()
@@ -38,22 +40,34 @@ public class LoadingManager : MonoBehaviour
         {
             StageProp[i].enabled= false;
         }
+        blackScreenImageObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
         playstage = DialogText.GetComponent<TypeWriterEffect>().PlayScene;
-        if (playstage != (int)PlayScene.ChangeScene ){
+        if (playstage != (int)PlayScene.ChangeScene) {
             StopCoroutine((EnablePlaySceneAnim(playstage)));
             StartCoroutine(EnablePlaySceneAnim(playstage));
             Debug.Log(playstage);
+        }
+        else if (playstage == (int)PlayScene.FadeScreen)
+        {
+            StartCoroutine(FadeIntoStage());
         }
         else if(playstage ==(int) PlayScene.ChangeScene)
         {
             SceneManager.LoadScene("Stage");
         }
+    }
+
+    private IEnumerator FadeIntoStage()
+    {
+        blackScreenImageObject.SetActive(true);
+        yield return new WaitForSeconds(fadeTime);
+        playstage = (int)PlayScene.ChangeScene;
     }
 
     IEnumerator EnablePlaySceneAnim(int playstage)

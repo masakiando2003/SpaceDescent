@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
             {
                 return;
             }
-            float coreRemainingThresold = scientistsWaveConfigs[i].GetCoreRemainingDistanceThresold();
+            float coreRemainingThresold = scientistsWaveConfigs[i].GetEndWaveDistance();
 
             if (Mathf.Floor(coreRemainingDistance) >= coreRemainingThresold)
             {
@@ -134,7 +134,7 @@ public class GameManager : MonoBehaviour
             {
                 return;
             }
-            float coreRemainingThresold = enemyWaveConfigs[i].GetCoreRemainingDistanceThresold();
+            float coreRemainingThresold = enemyWaveConfigs[i].GetEndWaveDistance();
 
             if (Mathf.Floor(coreRemainingDistance) >= coreRemainingThresold)
             {
