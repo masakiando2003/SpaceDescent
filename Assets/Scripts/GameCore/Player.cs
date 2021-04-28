@@ -84,6 +84,18 @@ public class Player : MonoBehaviour
         {
             playerSprite.enabled = false;
         }
+        if(GetComponent<BoxCollider2D>() != null)
+        {
+            GetComponent<BoxCollider2D>().enabled = false;
+        }
+    }
+
+    public void Win()
+    {
+        if (GetComponent<BoxCollider2D>() != null)
+        {
+            GetComponent<BoxCollider2D>().enabled = false;
+        }
     }
 
     public float GetSlowDownTimer()
