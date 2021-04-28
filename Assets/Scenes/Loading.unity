@@ -324,6 +324,7 @@ GameObject:
   - component: {fileID: 163068230}
   - component: {fileID: 163068231}
   - component: {fileID: 163068232}
+  - component: {fileID: 163068233}
   m_Layer: 5
   m_Name: Stage1
   m_TagString: Untagged
@@ -390,6 +391,27 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!320 &163068233
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163068229}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 9abe0401dd94a8d4f98342caca10826a, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 6007989000323171932, guid: 9abe0401dd94a8d4f98342caca10826a, type: 2}
+    value: {fileID: 1450188685}
+  - key: {fileID: 1239225898278375096, guid: 9abe0401dd94a8d4f98342caca10826a, type: 2}
+    value: {fileID: 1536185713}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &182730277
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,7 +1096,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &590861543
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1150,7 +1172,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &671937848
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1654,7 +1676,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1061256457
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1854,17 +1876,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60486f209603f1b4aa40ded192ed37e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialogText: {fileID: 2030512107}
-  StageProp:
-  - {fileID: 163068231}
-  - {fileID: 590861546}
-  - {fileID: 2099165548}
-  - {fileID: 1061256459}
-  - {fileID: 1556621092}
-  - {fileID: 671937850}
-  - {fileID: 1910784419}
-  StagePropAnim: []
+  dialogText: {fileID: 0}
+  stageProp: []
+  playableStage: []
   blackScreenImageObject: {fileID: 1613730405}
+  fadeTime: 2
 --- !u!4 &1269667792
 Transform:
   m_ObjectHideFlags: 0
@@ -2438,7 +2454,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1556621090
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2609,7 +2625,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1613730406
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2798,7 +2814,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!223 &1910784419
 Canvas:
   m_ObjectHideFlags: 0
@@ -3116,7 +3132,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2099165546
 RectTransform:
   m_ObjectHideFlags: 0

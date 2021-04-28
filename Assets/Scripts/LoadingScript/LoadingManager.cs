@@ -3,14 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class LoadingManager : MonoBehaviour
 {
-    [SerializeField] GameObject DialogText;
-    [SerializeField] Canvas[] StageProp;
-    [SerializeField] Animator[] StagePropAnim;
+     [SerializeField] GameObject dialogText;
+    [SerializeField] Canvas[] stageProp;
+    [SerializeField] PlayableDirector[] playableStage;
     [SerializeField] GameObject blackScreenImageObject;
     [SerializeField] float fadeTime = 2f;
 
@@ -20,25 +22,20 @@ public class LoadingManager : MonoBehaviour
     enum PlayScene
     {
         Introduction,
-        second,
-        third,
-        fourth,
-        fifth,
-        sixth,
-        last,
-        FadeScreen,
-        ChangeScene
+        second, third, fourth, fifth, sixth, last,
+        FadeScreen, ChangeScene
     }
     void Start()
     {
         Initialized();
+//        playableStage[0].enabled= false;
     }
 
     private void Initialized()
     {
-        for (int i = 0; i < StageProp.Length; i++)
+        for (int i = 0; i < stageProp.Length; i++)
         {
-            StageProp[i].enabled= false;
+            stageProp[i].enabled= false;
         }
         blackScreenImageObject.SetActive(false);
     }
@@ -47,7 +44,7 @@ public class LoadingManager : MonoBehaviour
     void Update()
     {
 
-        playstage = DialogText.GetComponent<TypeWriterEffect>().PlayScene;
+        playstage = dialogText.GetComponent<TypeWriterEffect>().PlayScene;
         if (playstage != (int)PlayScene.ChangeScene) {
             StopCoroutine((EnablePlaySceneAnim(playstage)));
             StartCoroutine(EnablePlaySceneAnim(playstage));
@@ -78,14 +75,14 @@ public class LoadingManager : MonoBehaviour
     void EnableStageProp(PlayScene stage)
     {
         int StageNum = (int) stage;
-        if (StageProp[StageNum] == null) return;
-        StageProp[StageNum].enabled = false;
-         StageProp[StageNum].enabled = true;
+        if (stageProp[StageNum] == null) return;
+        stageProp[StageNum].enabled = false;
+         stageProp[StageNum].enabled = true;
 
-        for (int i = 0; i < StageProp.Length; i++)
+        for (int i = 0; i < stageProp.Length; i++)
         {
             if (i != StageNum)
-                StageProp[i].enabled = false;
+                stageProp[i].enabled = false;
         }
     }
 }
