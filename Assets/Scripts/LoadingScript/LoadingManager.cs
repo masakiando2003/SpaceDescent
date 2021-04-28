@@ -86,7 +86,7 @@ public class LoadingManager : MonoBehaviour
         while (playStage < (int) PlayScene.FadeScreen)
         {
             playStage = dialogText.GetComponent<TypeWriterEffect>().PlayScene;
-            Debug.Log("Playstage is " + playStage);
+            //Debug.Log("Playstage is " + playStage);
 
             yield return null;
         }
