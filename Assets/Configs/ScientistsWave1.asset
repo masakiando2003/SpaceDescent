@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c77ae7def1f1cdd43addb28ad49ad122, type: 3}
+  m_Name: ScientistsWave1
+  m_EditorClassIdentifier: 
+  scientistsPrefab: {fileID: 8062626343275605894, guid: 7a0baec2f6e4caf418644bbaf94becb4, type: 3}
+  availableSpawnAreas:
+  - {fileID: 2200862219636466795, guid: d5e1183b6d1727c449c944299160de53, type: 3}
+  - {fileID: 4341672459861886634, guid: 1adcdc4991eeca34385992de702ead7c, type: 3}
+  - {fileID: 4324043738750766432, guid: 2bea6d212e14df54b9be4d6a25e0d83f, type: 3}
+  maxSpawnNum: 2
+  startWaveDistance: 50
+  endWaveDistance: 20
+  minFallDownFactor: -0.03
+  maxFallDownFactor: -0.04

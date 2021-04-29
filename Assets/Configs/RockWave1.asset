@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd5522bccddd6b24dacb35c3c041193d, type: 3}
+  m_Name: RockWave1
+  m_EditorClassIdentifier: 
+  rockPrefab: {fileID: 8743449184708812677, guid: caf6c04d9daea184db93c115b613d7fe, type: 3}
+  availableSpawnAreas:
+  - {fileID: 2235320300331583543, guid: 7d4fdcd00b4025240abb816af88e3b58, type: 3}
+  - {fileID: 4533807686353399299, guid: dd12e17b5b9ac644ba4547fcb20fc780, type: 3}
+  - {fileID: 5831251640075837840, guid: 7b33c9944d33a534eb4ab4d053877a4b, type: 3}
+  - {fileID: 5776965062089471242, guid: 5043def160fa0ff4fade6353669966b2, type: 3}
+  - {fileID: 1408792281024753815, guid: 8c75f6c94b8eb1949b7eac64540c2ea0, type: 3}
+  - {fileID: 5053868512757152831, guid: e1095cfeb4fbed0428c1986e9ed1babc, type: 3}
+  maxSpawnNum: 3
+  startWaveDistance: 50
+  endWaveDistance: 25
+  minSpeed: 3
+  maxSpeed: 4

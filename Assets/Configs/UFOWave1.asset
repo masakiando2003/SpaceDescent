@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a2f79df2900fc245b3de29891daf86c, type: 3}
+  m_Name: UFOWave1
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 3193779257072488560, guid: 5ac218b921f856842addd779186bccbe, type: 3}
+  pathPrefabs:
+  - {fileID: 7927845515658890452, guid: b28b0fe64c9d4c64e9e4ac55abb2c3db, type: 3}
+  - {fileID: 5080405695832399197, guid: b9e505425daeb3b4ba721912edcf9ed8, type: 3}
+  - {fileID: 6299280893781383331, guid: 2ed8a89e2ff56034ea54139e3fec5d3e, type: 3}
+  projectTilePrefab: {fileID: 1304880533349482714, guid: f7026103454a4aa43bff8e5a28d80d9b, type: 3}
+  maxSpawnNum: 1
+  startWaveDistance: 100
+  endWaveDistance: 51
+  timeBetweenSpawns: 10
+  minEnemyMoveSpeed: 0.5
+  maxEnemyMoveSpeed: 0.8
