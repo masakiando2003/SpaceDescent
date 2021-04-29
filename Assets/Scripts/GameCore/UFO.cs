@@ -11,7 +11,6 @@ public class UFO : MonoBehaviour
     [SerializeField] float shotCounter;
     [SerializeField] float minTimeBetweenShots = 0.2f;
     [SerializeField] float maxTimeBetweeenShots = 1f;
-    [SerializeField] float projectTileSpeed = 10f;
 
     // Start is called before the first frame update
     void Start()
