@@ -9,6 +9,7 @@ using Random = UnityEngine.Random;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] float startCountDownTime = 3.9f, hideCountDownTime = 1f, readyToStartSeconds = 2f;
+    [SerializeField] float speedUpFactor = 1.5f, normalSpeedFactor = 1f;
     [SerializeField] float coreRemainingDistance = 10f;
     [SerializeField] float coreVisibleDistance = 10f;
     [SerializeField] string startGameText = "GO !";
@@ -335,6 +336,16 @@ public class GameManager : MonoBehaviour
         {
             remainingDistanceText.text = Mathf.Floor(coreRemainingDistance).ToString() + " km";
         }
+    }
+
+    public void GameSpeedUp()
+    {
+        Time.timeScale = speedUpFactor;
+    }
+
+    public void GameSpeedNormal()
+    {
+        Time.timeScale = normalSpeedFactor;
     }
 
     public void GameOver()
