@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     [SerializeField] float movementSpeed = 10f;
-    [SerializeField] float Bottompadding = 3f;
+    [SerializeField] float bottompadding = 10f;
     
     [SerializeField] float normalFactor = 1f;
     [SerializeField] float boostFactor = 1.5f;
@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
         Camera gameCamera = Camera.main;
         xMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + padding;
         xMax = gameCamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - padding;
-        yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + Bottompadding;
+        yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + padding;
         yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
     }
 
@@ -69,6 +69,7 @@ public class Player : MonoBehaviour
         var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed * movementFactor;
         var deltaY = Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed * movementFactor;
         var newXPos = Mathf.Clamp(transform.position.x + deltaX, xMin, xMax);
+   //     var LerpMaxYPos = Mathf.Lerp(yMax+bottompadding, yMax, 0.01f);
         var newYPos = Mathf.Clamp(transform.position.y + deltaY, yMin, yMax);
         transform.position = new Vector2(newXPos, newYPos);
     }

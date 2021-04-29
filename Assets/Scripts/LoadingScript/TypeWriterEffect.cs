@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class TypeWriterEffect : MonoBehaviour
 {
-
+    [SerializeField] private float StartTexting=1f;
     [SerializeField] float WaitNextText = 2f;
     [SerializeField] string[] fullText;
 
@@ -22,6 +22,7 @@ public class TypeWriterEffect : MonoBehaviour
     
     IEnumerator ShowText()
     {
+        yield return new WaitForSeconds(StartTexting);
         for (int i = 0; i < fullText.Length; i++ )
         {
             for (int j = 0; j <= fullText[i].Length; j++)

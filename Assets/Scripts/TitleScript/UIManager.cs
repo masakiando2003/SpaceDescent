@@ -2,13 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] float enterGameTime = 1f;
     [SerializeField] AudioClip playTitleButtonSE;
     AudioSource audioSource;
-
+    
     private StartGame mstStartGame;
 
     private void Start()
@@ -22,6 +23,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
+ 
     public void _StartGame()
     {
         if(audioSource != null)

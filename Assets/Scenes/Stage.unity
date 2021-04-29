@@ -773,7 +773,7 @@ MonoBehaviour:
   startCountDownTime: 3.9
   hideCountDownTime: 1
   readyToStartSeconds: 2
-  speedUpFactor: 5
+  speedUpFactor: 2
   normalSpeedFactor: 1
   coreRemainingDistance: 50
   coreVisibleDistance: 7
