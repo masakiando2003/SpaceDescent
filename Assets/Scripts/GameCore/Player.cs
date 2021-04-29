@@ -7,8 +7,6 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     [SerializeField] float movementSpeed = 10f;
-    [SerializeField] float bottompadding = 10f;
-    
     [SerializeField] float normalFactor = 1f;
     [SerializeField] float boostFactor = 1.5f;
     [SerializeField] float slowDownFactor = 0.5f;
