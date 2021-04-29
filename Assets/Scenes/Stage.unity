@@ -773,6 +773,8 @@ MonoBehaviour:
   startCountDownTime: 3.9
   hideCountDownTime: 1
   readyToStartSeconds: 2
+  speedUpFactor: 5
+  normalSpeedFactor: 1
   coreRemainingDistance: 50
   coreVisibleDistance: 7
   startGameText: GO !
@@ -4916,12 +4918,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8702771266422780933, guid: b196db06b568ef142ab1e8dec84f3b87, type: 3}
+      propertyPath: BGanim
+      value: 
+      objectReference: {fileID: 1735989233}
+    - target: {fileID: 8702771266422780933, guid: b196db06b568ef142ab1e8dec84f3b87, type: 3}
       propertyPath: padding
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8702771266422780933, guid: b196db06b568ef142ab1e8dec84f3b87, type: 3}
       propertyPath: boostFactor
-      value: 0.25
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8702771266422780933, guid: b196db06b568ef142ab1e8dec84f3b87, type: 3}
       propertyPath: Bottompadding
@@ -4931,6 +4937,10 @@ PrefabInstance:
       propertyPath: movementSpeed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8702771266422780933, guid: b196db06b568ef142ab1e8dec84f3b87, type: 3}
+      propertyPath: BackGroundAnim
+      value: 
+      objectReference: {fileID: 1735989232}
     - target: {fileID: 8702771266422780933, guid: b196db06b568ef142ab1e8dec84f3b87, type: 3}
       propertyPath: slowDownFactor
       value: 0.75

@@ -27,4 +27,14 @@ public class BackgroundScroller : MonoBehaviour
         if(anim == null) { return; }
         anim.speed = backgroundScrollSpeed;
     }
+
+    public void SetStage2ToTrue()
+    {
+        gameObject.GetComponent<Animator>().SetBool("IsStage2", true);
+    }
+
+    public void SetStage2ToFalse()
+    {
+        gameObject.GetComponent<Animator>().SetBool("IsStage2", false);
+    }
 }

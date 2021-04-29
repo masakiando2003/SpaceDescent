@@ -57,11 +57,13 @@ public class Player : MonoBehaviour
         {
             movementFactor = boostFactor;
             FindObjectOfType<GameManager>().GameSpeedUp();
+           FindObjectOfType<BackgroundScroller>().SetStage2ToTrue();
         }
         else
         {
             movementFactor = normalFactor;
             FindObjectOfType<GameManager>().GameSpeedNormal();
+            FindObjectOfType<BackgroundScroller>().SetStage2ToFalse();
         }
         if (isSlowDownState) { movementFactor = slowDownFactor; }
         var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed * movementFactor;
