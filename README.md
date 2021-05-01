@@ -1,7 +1,9 @@
 # WeeklyGameJamProject
 Website: http://weeklygamejam.com/
 
-Will join #198 or later
+Joined #198
+
+Submission: https://masakiando2003.itch.io/space-descent
 
 Development Platform: Unity 2020.3.4f1
 
@@ -19,7 +21,8 @@ Notice:
 {new branch} -> development
 
 Current Members:
+- Yeung Ka Kei(@dhu_a18dc593) - Programmer
+- RamCheese(@RamCheese) - Graphics Designer / Game Designer
 
-Yeung Ka Kei(@dhu_a18dc593) - Programmer
 
-RamCheese(@RamCheese) - Graphics Designer / Game Designer
+**All Rights Reserved**
