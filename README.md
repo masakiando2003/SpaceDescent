@@ -1,7 +1,6 @@
 # WeeklyGameJamProject
 
-* This project is imported from:
-* https://gitlab.com/dhu_a18dc593/weeklygamejamproject.git
+This project is imported from: https://gitlab.com/dhu_a18dc593/weeklygamejamproject.git
 
 Website: http://weeklygamejam.com/
 
