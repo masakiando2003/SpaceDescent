@@ -1,4 +1,8 @@
 # WeeklyGameJamProject
+
+* This project is imported from:
+* https://gitlab.com/dhu_a18dc593/weeklygamejamproject.git
+
 Website: http://weeklygamejam.com/
 
 Will join #198 or later
